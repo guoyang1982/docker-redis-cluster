@@ -8,7 +8,8 @@ MAINTAINER Eloy Coto <eloy.coto@gmail.com>
 ENV HOME /root
 RUN apk update && apk --update add ruby ruby-rdoc ruby-irb supervisor git
 RUN /usr/bin/gem install redis
-RUN git clone -b 3.0.6 https://github.com/antirez/redis.git /redis
+#RUN git clone -b 3.0.6 https://github.com/antirez/redis.git /redis
+RUN env GIT_SSL_NO_VERIFY=true git clone -b 3.0.6 https://github.com/antirez/redis.git /redis
 
 # Build redis from source
 #RUN (cd /redis && make)
